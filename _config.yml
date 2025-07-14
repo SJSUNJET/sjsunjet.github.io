@@ -1,0 +1,6 @@
+title: Stan Sun Portfolio
+description: Mechanical Engineering | Mechatronics, CAD/FEA, and Simulation
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
