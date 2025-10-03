@@ -15,5 +15,5 @@ I’m a Mechanical Engineering student at Imperial College London with interests
 
 ## 🧪 Projects
 
-- [📈 Vibrational String Simulation](./projects/vibration-sim.md)
+- [Vibrational String Simulation](./projects/vibration-sim.md)
 - [FEA project (Ansys Mechanical)](./projects/CFRP-fea.md)

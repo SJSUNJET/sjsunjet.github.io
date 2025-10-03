@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Static Structural Analysis of the 3.0 Gen Imperial Eco-Marathon Vehicle Top Shell
+title: FEA-Carbon Fiber Composites
 ---
 
 # Static Structural Analysis of the 3.0 Gen Imperial Eco-Marathon Vehicle Top Shell
@@ -28,3 +28,7 @@ Workflow:
 5.	Define necessary rosettes to be used as fibre reference directions in oriented selection sets
 6.	Create Orientation selection set for components sharing the same fibre definition
 7.	Apply Stackup materials by creating modelling groups
+
+## 📄 Project Document of FEA Results and Setup Guidance (Building...)
+
+[📝 Download Project Document](../assets/CFRP-fea/vibration-sim-report.pdf)
