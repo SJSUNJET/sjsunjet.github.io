@@ -31,4 +31,4 @@ Workflow:
 
 ## 📄 Project Document of FEA Results and Setup Guidance (Building...)
 
-[📝 Download Project Document](../assets/CFRP-fea/vibration-sim-report.pdf)
+[📝 Download Project Document](../assets/CFRP-fea/FEA_Project Document.doc)
