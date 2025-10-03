@@ -3,7 +3,7 @@ layout: default
 title: Static Structural Analysis of the 3.0 Gen Imperial Eco-Marathon Vehicle Top Shell
 ---
 
-# 📈 Vibrational String Simulation
+# Static Structural Analysis of the 3.0 Gen Imperial Eco-Marathon Vehicle Top Shell
 
 📅 Date: May 2025  
 🛠 Tools: Python, NumPy, Matplotlib  
@@ -19,7 +19,7 @@ Evaluate the structural response of the top-opening door section of the carbon-f
 - Identify high-stress regions to guide structural reinforcement.
 
 ## Methodology
-# ACP(Pre) – Composite Definition
+### ACP(Pre) – Composite Definition
 Workflow:
 1.	Define material in Engineering data
 2.	Create Fabrics (Define thickness of carbon layer)

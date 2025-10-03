@@ -3,7 +3,7 @@ layout: default
 title: Vibrational String Simulation
 ---
 
-# 📈 Vibrational String Simulation
+# Vibrational String Simulation
 
 📅 Date: May 2025  
 🛠 Tools: Python, NumPy, Matplotlib  
