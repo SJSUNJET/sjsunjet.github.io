@@ -145,9 +145,3 @@ The composite shell assembly was evaluated in **ANSYS Static Structural** under 
 
 - **Weight & Stiffness Optimization:** Refining the composite ply schedule and concentrating reinforcement plies strictly at the identified cockpit sill hotspots enabled an estimated **~5% reduction in top-shell mass** while preserving full structural stiffness for driver ingress/egress.
 - **Verification Workflow:** Combined mesh refinement checks at rib fillets with classical laminate theory sanity checks on the orthotropic carbon-epoxy stackup.
-
-<div class="cta-row" style="margin-top: 2rem;">
-  <a class="btn-apple btn-secondary" href="../assets/CFRP-fea/FEA_Project%20Document.docx" download>
-    📄 Download Original Project Document (.docx)
-  </a>
-</div>

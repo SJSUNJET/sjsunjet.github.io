@@ -37,21 +37,21 @@ title: Home
     <!-- Card 1: ME3 DMT Rocket Recovery System -->
     <a class="project-card" href="./projects/me3-dmt.html">
       <div class="project-card-media media-contain">
-        <img src="./assets/me3-dmt/cad-superproject-assembly.png" alt="Manufactured two-stage rocket parachute recovery module with anodized 6061 formers and ABS nose cone" loading="lazy">
+        <img src="./assets/me3-dmt/recovery-module-horizontal.png" alt="Manufactured two-stage rocket parachute recovery module with anodized aluminum formers and 3D-printed nose cone" loading="lazy">
         <span class="card-badge-overlay">Aerospace &amp; Mechatronics</span>
       </div>
       <div class="project-card-body">
         <div class="project-card-meta">ME3 Design, Make &amp; Test · Oct 2025 – Jun 2026</div>
-        <h3 class="project-card-title">Two-Stage Electromechanical Rocket Recovery System</h3>
+        <h3 class="project-card-title">Two-Stage Electromechanical Rocket Recovery Module</h3>
         <p class="project-card-desc">
-          Co-led a 4-person team to design, manufacture, and qualify a dual-stage parachute recovery module for a 36.4 kg liquid bipropellant rocket (EuRoC). Sized the CNC bulkhead via static structural FEA (-30% weight reduction under 6 kN shock) and planned dynamic shaker experiments on HADES, diagnosing a critical 1883 Hz cross-axis resonance via Python telemetry.
+          Co-led a 4-person team to design, manufacture, and qualify the dual-stage electromechanical parachute recovery module for a competition rocket superproject. Sized the CNC bulkhead via static FEA shape optimization (-30% weight reduction under 6 kN shock) and planned dynamic vibration qualification tests, diagnosing a critical 1883 Hz cross-axis resonance via Python data processing.
         </p>
         <div class="project-card-tags">
-          <span class="tag-chip">SolidWorks CAD &amp; BOM</span>
-          <span class="tag-chip">ANSYS Static &amp; Transient FEA</span>
-          <span class="tag-chip">HADES Shaker Testing</span>
-          <span class="tag-chip">Python Signal Processing</span>
-          <span class="tag-chip">CNC Machining &amp; DFM</span>
+          <span class="tag-chip">CAD &amp; Assembly BOM</span>
+          <span class="tag-chip">Static FEA Optimization</span>
+          <span class="tag-chip">Vibration Testing</span>
+          <span class="tag-chip">Python (Data Processing)</span>
+          <span class="tag-chip">Metal &amp; 3D-Printed Prototyping</span>
         </div>
       </div>
     </a>

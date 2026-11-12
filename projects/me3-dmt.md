@@ -1,57 +1,56 @@
 ---
 layout: project
-title: Rocket Recovery System — ME3 Design, Make & Test
-headline: Two-Stage Electromechanical Parachute Recovery System
-subtitle: Mechanical architecture, FEA bulkhead weight optimization, electromechanical burnwire and latch deployment, and dynamic vibration qualification for a 36.4 kg liquid bipropellant competition rocket.
+title: Rocket Recovery Module — ME3 Design, Make & Test
+headline: Two-Stage Electromechanical Parachute Recovery Module
+subtitle: Mechanical architecture, static FEA bulkhead weight optimization, electromechanical burnwire and latch deployment, and dynamic vibration qualification for a rocket recovery module.
 category: Aerospace & Mechatronic Systems
 date_label: October 2025 – June 2026
 context: Imperial College London · ME3 Design, Make & Test (DMT)
-tools: SolidWorks CAD, ANSYS Transient Structural, Python (Signal Processing), HADES Dynamic Shaker, Arduino C++, CNC Milling
+tools: CAD, Static FEA, Python (Data Processing), Vibration Testing, Arduino, Metal & 3D-Printed Prototype Manufacturing
 metrics:
   - value: "6 kN"
     label: "Peak Main Deployment Shock Load Capacity"
   - value: "-30%"
-    label: "Bulkhead Weight Reduction via Static FEA"
+    label: "Bulkhead Weight Reduction via Static FEA Optimization"
   - value: "1883 Hz"
-    label: "Lateral Resonance Discovered via Shaker Telemetry"
+    label: "Lateral Resonance Discovered via Vibration Telemetry"
   - value: "8.1 m/s"
     label: "Touchdown Descent Velocity (EuRoC Specification < 9 m/s)"
 ---
 
 ## 1. Executive Summary & Superproject Context
 
-As part of the **ME3 Design, Make and Test (DMT)** curriculum at Imperial College London, our 4-person team designed, manufactured, and experimentally verified a **two-stage electromechanical parachute recovery system** for the DMT Rocket Superproject. 
+As part of the **ME3 Design, Make and Test (DMT)** curriculum at Imperial College London, our 4-person team designed, manufactured, and experimentally verified a **two-stage electromechanical parachute recovery module** intended for the DMT Rocket Superproject.
 
-The vehicle is a 4.04-metre-tall, 36.4 kg pressure-fed liquid bipropellant rocket (ethanol / nitrous oxide with a nitrogen pressurant system) engineered to generate 3000 N nominal thrust and compete at European Rocketry Challenge (**EuRoC**) standards.
+Designed to meet European Rocketry Challenge (**EuRoC**) descent specifications within a 4-metre multi-team competition vehicle architecture, our sub-team delivered and experimentally qualified the **standalone parachute recovery module** (full vehicle assembly across propulsion, airframe, and recovery sub-teams was not completed due to project time and resource constraints).
 
-<div class="figure-grid">
-  <figure class="figure-card">
-    <img src="../assets/me3-dmt/cad-superproject-assembly.png" alt="CAD Assembly of the DMT Rocket Superproject showing Engine, Tanks, and Recovery Subassemblies" loading="lazy">
-    <figcaption class="figure-caption">
-      <strong>Figure 1.</strong> Full Superproject vehicle architecture: Subassembly A (Airframe &amp; Feed System), Subassembly B (Regeneratively Cooled Engine), and Subassembly C (Nose Cone Parachute Recovery).
-    </figcaption>
-  </figure>
-  <figure class="figure-card">
-    <img src="../assets/me3-dmt/hardware-assembly-full.png" alt="Manufactured and assembled Recovery System hardware module" loading="lazy">
-    <figcaption class="figure-caption">
-      <strong>Figure 2.</strong> Fully manufactured and integrated Recovery System module featuring anodized 6061-T6 formers, 3D printed ABS nose cone, PLA parachute canister, and structural aluminum stringers.
-    </figcaption>
-  </figure>
-</div>
+<figure class="figure-card">
+  <img src="../assets/me3-dmt/cad-superproject-assembly%20(2).png" alt="Horizontal CAD architecture of the 4m DMT Rocket Superproject dividing Team B, Team A, and Team C recovery module" loading="lazy">
+  <figcaption class="figure-caption">
+    <strong>Figure 1 — Superproject Vehicle Architecture:</strong> Intended 4 m vehicle layout dividing mechanical responsibilities across Team B (Nozzle, Cooling &amp; Injection Systems), Team A (Propellant Delivery &amp; Structural Framework), and Team C (Two-Stage Parachute Recovery &amp; Reusability).
+  </figcaption>
+</figure>
+
+<figure class="figure-card">
+  <img src="../assets/me3-dmt/recovery-module-horizontal.png" alt="Horizontal photograph of the manufactured two-stage electromechanical recovery module hardware" loading="lazy">
+  <figcaption class="figure-caption">
+    <strong>Figure 2 — Manufactured Recovery Module (Subassembly C):</strong> Completed horizontal hardware featuring the 3D-printed ABS nose cone, anodized aluminum structural formers, machined stringers, PLA parachute containment canister, central M20 eyebolt bulkhead, and Arduino/relay electronics bay.
+  </figcaption>
+</figure>
 
 ### Personal Ownership & Technical Scope
 
 Working in a close-knit, flat 4-person engineering team, my primary technical responsibilities encompassed:
 
 1. **System & Mechanical Interface Leadership:** Co-led the recovery sub-team; defined physical envelope constraints, stringer pass-throughs, and structural loading boundaries with the Propulsion and Airframe sub-teams. Authored the master recovery assembly drawings (`DWG NO. C.AMB.002`) and nose cone assembly drawings (`DWG NO. C.AMB.001`).
-2. **Bulkhead Structural Sizing & FEA Optimization:** Executed iterative structural finite element analyses in ANSYS, **applying the peak dynamic shock load (5.7 kN) as an equivalent static load input** to identify stress concentrations, evaluate rib load paths, and guide pocketing geometry. Achieved a **30% bulkhead weight reduction** while ensuring safety factor compliance ($SF_{\min} = 1.51$) well above the aerospace requirement ($SF \ge 1.5$). Evaluated transient dynamic response over time.
-3. **Dynamic Vibration Campaign Planning & Telemetry Processing:** Formulated and led the dynamic shaker qualification campaign on Imperial’s **HADES (High Amplitude Dynamic Excitation System)** platform ($40\text{--}2000\text{ Hz}$ sine sweep and SMC-S-016 random vibration profile). Designed the test matrix, shaker adapter plate, and 4-channel accelerometer layout; collaborated with recovery teammates and the HADES facility technician for experimental execution. Authored the Python signal-processing pipeline (`scipy.signal`, `numpy`, `matplotlib`) to compute transmissibility functions ($H_{xy}$) and auto-PSDs ($G_{xx}$), diagnosing a critical cross-axis lateral resonance at $1883\text{ Hz}$.
+2. **Bulkhead Structural Sizing & Static FEA Optimization:** Executed iterative static structural and shape-optimization FEA, **applying the peak dynamic shock load (5.7 kN) as an equivalent static load input** to identify stress concentrations, preserve primary rib load paths, and guide material pocketing. Achieved a **30% bulkhead weight reduction** while ensuring safety factor compliance ($SF_{\min} = 1.51$) well above aerospace requirements ($SF \ge 1.5$).
+3. **Vibration Testing Campaign Planning & Python Data Processing:** Formulated and led the **planning** of the dynamic shaker table qualification campaign ($40\text{--}2000\text{ Hz}$ sine sweep and SMC-S-016 random vibration profile). Designed the test matrix, shaker adapter plate, and 4-channel accelerometer instrumentation layout; collaborated with recovery teammates and the laboratory technician for test execution. Authored Python data-processing pipelines (`scipy.signal`, `numpy`, `matplotlib`) to compute transmissibility functions ($H_{xy}$) and auto-PSDs ($G_{xx}$), diagnosing a critical cross-axis lateral resonance at $1883\text{ Hz}$.
 
 ---
 
 ## 2. Mechanical Architecture & Deployment Mechanics
 
-The recovery system is housed entirely inside the forward airframe bay beneath the aerodynamic nose cone. To ensure personnel safety in the landing zone and preserve high-value on-board telemetry hardware, the system executes a **dual-stage deployment sequence**:
+The recovery module is housed inside the forward airframe section beneath the aerodynamic nose cone. To ensure range safety and preserve on-board electronics hardware, the module executes a **dual-stage electromechanical deployment sequence**:
 
 <div class="figure-grid">
   <figure class="figure-card">
@@ -68,89 +67,71 @@ The recovery system is housed entirely inside the forward airframe bay beneath t
   </figure>
 </div>
 
-```
-FLIGHT TRAJECTORY & RECOVERY SEQUENCE:
-┌─────────────────┐       ┌────────────────────────┐       ┌───────────────────────┐
-│ Apogee (2.5 km) │ ────> │ Drogue Ejection        │ ────> │ Main Release (500 m)  │ ────> Touchdown (< 9 m/s)
-│ Flight Computer │       │ Nichrome wire melts    │       │ Rotary latch unlocks  │       Safe recovery of
-│ triggers Relay  │       │ Dyneema cords; 200 N   │       │ drogue cord; pulls    │       vehicle body &
-└─────────────────┘       │ springs push nose cone │       │ out 2.4 m main chute  │       payload electronics
-                          └────────────────────────┘       └───────────────────────┘
-```
-
-<figure class="figure-card">
-  <img src="../assets/me3-dmt/cad-recovery-overview-annotated.png" alt="Detailed annotated CAD cross section of the recovery module components" loading="lazy">
-  <figcaption class="figure-caption">
-    <strong>Figure 3.</strong> Subassembly internal layout: structural former plates, 3D printed parachute containment cylinder, Arduino/relay electronics housing, central M20 eyebolt, electronic rotary latch, and Dyneema tensioning cords.
-  </figcaption>
-</figure>
-
 ---
 
-## 3. Bulkhead Structural Optimization: Static FEA Sizing & Dynamic Response
+## 3. Bulkhead Structural Optimization & Static FEA Sizing
 
-During main parachute deployment, vehicle deceleration induces sudden dynamic shock loads. Based on aerodynamic drag and shock factor calculations using William P. Ludtke parachute opening data:
+During main parachute deployment, aerodynamic deceleration induces high axial opening shock loads. Based on aerodynamic drag and shock factor calculations using William P. Ludtke parachute opening data:
 
 $$\text{Peak Dynamic Shock Load} = 5.7\text{ kN}, \quad \text{Sustained Descent Load} = 3.9\text{ kN}$$
 
-All deployment shock loads transfer through a heavy-duty **M20 central eye-bolt** anchored directly into the primary **6061-T6 aluminum bulkhead plate**, which distributes axial and bending forces outward into the vehicle's three longitudinal stringers.
+All deployment shock loads transfer through a heavy-duty **M20 central eye-bolt** anchored directly into the primary **aluminum bulkhead plate**, which distributes axial and bending forces outward into the module's three longitudinal stringers.
 
 <div class="figure-grid">
   <figure class="figure-card">
-    <video width="100%" autoplay muted loop playsinline controls preload="metadata">
-      <source src="../assets/me3-dmt/fea-bulkhead-transient-structural.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
+    <img src="../assets/me3-dmt/FEA%20Optimization%20for%20weight%20reduction.png" alt="Shape optimization mesh showing structural load paths and 34.28 percent target mass ratio on the bulkhead" loading="lazy">
     <figcaption class="figure-caption">
-      <strong>Transient Structural Safety Factor Animation (ANSYS):</strong> Dynamic safety factor distribution across the optimized 6061-T6 bulkhead plate subjected to the 5.7 kN peak opening shock load over time, verifying absence of transient plastic yield.
+      <strong>Shape Optimization for Mass Reduction:</strong> FEA topology optimization identifying critical load paths from the central M20 eyebolt boss outward to the three stringer lugs and mounting bosses (0.159 kg optimized core mass).
     </figcaption>
   </figure>
   <figure class="figure-card">
-    <img src="../assets/me3-dmt/mfg-jlc-cnc-6061-plates.png" alt="Precision CNC machined 6061-T6 aluminum bulkhead and former plates" loading="lazy">
+    <img src="../assets/me3-dmt/Modified%20bulkhead%20geometry.png" alt="Pocketed CAD geometry of the weight-reduced bulkhead plate derived from FEA optimization" loading="lazy">
     <figcaption class="figure-caption">
-      <strong>Outsourced Precision CNC Hardware (JLC CNC):</strong> Anodized 6061-T6 bulkhead plate (left), parachute cylinder former (middle), and nose cone interface former (right) featuring the pocketed geometry that achieved a <strong>30% mass reduction</strong>.
+      <strong>Modified Pocketed Bulkhead CAD:</strong> Final machinable geometry incorporating stiffening spokes and filleted pockets in low-stress zones derived directly from the optimization results.
     </figcaption>
   </figure>
 </div>
 
-### Finite Element Analysis & Sizing Highlights
+<figure class="figure-card">
+  <img src="../assets/me3-dmt/mfg-jlc-cnc-6061-plates.png" alt="Precision CNC machined anodized aluminum bulkhead and former plates" loading="lazy">
+  <figcaption class="figure-caption">
+    <strong>Precision CNC-Machined Hardware:</strong> Anodized aluminum bulkhead plate (left), parachute cylinder former (middle), and nose cone interface former (right) featuring the pocketed geometry that achieved a <strong>30% mass reduction</strong>.
+  </figcaption>
+</figure>
 
-1. **Static Structural Sizing & Mass Optimization:**
-   - **Methodology:** Component sizing was conducted via iterative **Static Structural FEA in ANSYS**, applying the peak dynamic shock load (**$5.7\text{ kN}$**) as a conservative equivalent static load input applied axially through the central M20 eyebolt boss.
-   - **Iterative Pocketing:** By analyzing von Mises stress contours and transverse bending moments, material was systematically pocketed out of low-stress interior zones while retaining stiffening ribs along direct radial load paths connecting the eyebolt boss to the stringer attachment lugs.
-   - **Mass Reduction:** Replaced a monolithic former blank with the pocketed geometry, achieving a **30% mass reduction** without sacrificing plate stiffness.
-   - **Safety Factor Compliance:** Localized peak stress at the eyebolt boss and stringer notch roots maintained an allowable safety factor well above unity (**$SF_{\min} = 1.51$** at peak shock, rising to $SF > 7.0$ steady state descent, complying with the aerospace requirement $SF \ge 1.5$).
+### Static Structural Sizing & Safety Margins
 
-2. **Transient Dynamic Verification:**
-   - In addition to static sizing, a **Transient Structural simulation** (shown in the animation above) was conducted across the deceleration shock pulse to examine dynamic stress wave transmission, ensure absence of plastic deformation, and verify time-domain safety factor margins.
-
-3. **Rotary Latch Mechanism Safety Margin:**
+1. **Static FEA Sizing & Mass Optimization:**
+   - **Methodology:** Component sizing was performed via iterative **Static Structural FEA**, applying the maximum dynamic opening shock load (**$5.7\text{ kN}$**) as a conservative equivalent static load input axially through the central M20 eyebolt boss.
+   - **Iterative Pocketing:** Using shape optimization and von Mises stress contours, low-stress material zones were systematically pocketed out while retaining structural spokes along direct radial bending load paths to the three stringers.
+   - **Mass & Safety Compliance:** Achieved a **30% bulkhead weight reduction** over the initial solid disc while keeping localized peak stress at the eyebolt boss and stringer notch roots safely above unity (**$SF_{\min} = 1.51$** at peak shock, rising to $SF > 7.0$ under sustained descent).
+2. **Rotary Latch Mechanism Safety Margin:**
    - The electronic rotary latch mechanism was evaluated under drogue shock loads ($0.6\text{ kN}$ shock vs. $5.8\text{ kN}$ ultimate failure load $\rightarrow SF = 9.7$; $0.5\text{ kN}$ sustained vs. $0.8\text{ kN}$ rated release capacity $\rightarrow SF = 1.6$).
 
 ---
 
 ## 4. Manufacturing & Iterative Prototyping
 
-To balance budget (£1,500 limit), precision tolerances, and turnaround times, manufacturing combined in-house machining at Imperial’s Student Workshop (STW) with precision outsourced CNC milling:
+To balance budget (£1,500 limit), precision tolerances, and turnaround times, fabrication combined in-house metal machining and 3D-printed prototyping at Imperial’s Student Workshop (STW) with precision outsourced CNC milling:
 
 <div class="figure-grid">
   <figure class="figure-card">
-    <img src="../assets/me3-dmt/mfg-3dprinted-nosecone-and-brackets.png" alt="In-house STW machining: aluminum stringers and former ring integration" loading="lazy">
+    <img src="../assets/me3-dmt/mfg-3dprinted-nosecone-and-brackets.png" alt="In-house workshop fabrication: aluminum stringers, formers, and bulkhead assembly" loading="lazy">
     <figcaption class="figure-caption">
-      <strong>In-House STW Machining:</strong> Full-length 6061 aluminum stringers (milled using custom alignment jigs), former ring integration, and M20 eye-bolt bulkhead assembly on the STW workbench.
+      <strong>In-House Metal &amp; Prototype Assembly:</strong> Full-length aluminum stringers (machined using custom alignment jigs), former ring integration, and M20 eye-bolt bulkhead assembly on the workshop bench.
     </figcaption>
   </figure>
   <figure class="figure-card">
     <img src="../assets/me3-dmt/cad-nosecone-springs-render.png" alt="Close-up of the nose cone spring retention interface and feed screw stops" loading="lazy">
     <figcaption class="figure-caption">
-      <strong>Nose Cone Spring Retention &amp; Safety Mechanism:</strong> Physical interface showing compressed 200 N alloy steel springs, M4 feed screw safety mechanical stops, capstan screws, and yellow Dyneema tensioning cords.
+      <strong>Nose Cone Spring Retention &amp; Safety Mechanism:</strong> Physical interface showing compressed 200 N alloy steel springs, M4 feed screw safety mechanical stops, capstan screws, and Dyneema tensioning cords.
     </figcaption>
   </figure>
 </div>
 
 ### Design Iteration: Nose Cone Tensioning Mechanism
 
-During initial physical integration, a **braided 3-cord Dyneema** restraint configuration was tested to hold the nose cone firmly against the three compression springs ($200\text{ N}$ combined preload, $8.5\text{ mm}$ compression). 
+During initial physical integration, a **braided 3-cord Dyneema** restraint configuration was tested to hold the nose cone firmly against the three compression springs ($200\text{ N}$ combined preload, $8.5\text{ mm}$ compression).
 
 **The Challenge:** Braiding introduced unexpected compliance, allowing the cords to stretch under tension and causing nose cone cocking and insufficient spring retention.
 
@@ -159,99 +140,84 @@ During initial physical integration, a **braided 3-cord Dyneema** restraint conf
 <figure class="figure-card" style="max-width: 600px; margin: 1.5rem auto;">
   <img src="../assets/me3-dmt/cad-nosecone-separated.png" alt="Redesigned Dyneema cord individual hollow-bolt tensioning mechanism with callouts" loading="lazy">
   <figcaption class="figure-caption">
-    <strong>Figure 4.</strong> Redesigned independent tensioning mechanism: three individual Dyneema lines passing through threaded hollow bulkhead bolts with lock-nuts for fine pre-tensioning against the 200 N spring force.
+    <strong>Figure 3 — Redesigned Tensioning Mechanism:</strong> Three independent Dyneema lines passing through threaded hollow bulkhead bolts with lock-nuts for fine pre-tensioning against the 200 N spring force.
   </figcaption>
 </figure>
 
 ---
 
-## 5. Experimental Testing & Telemetry Analysis
+## 5. Experimental Testing & Python Data Analysis
 
 ### Test A: Electromechanical Burnwire Sub-Test
 
-The initial stage deployment relies on cutting the tensioned Dyneema cords via electrical resistance heating. A **35 SWG nichrome wire** ($0.203\text{ mm}$ OD, $30.31\ \Omega/\text{m}$) was coiled around each cord and actuated via an Arduino-triggered relay circuit ($18\text{ V}$, $2.97\text{ A}$ nominal current).
+Stage 1 deployment relies on severing tensioned Dyneema cords via electrical resistance heating. A **35 SWG nichrome wire** ($0.203\text{ mm}$ OD, $30.31\ \Omega/\text{m}$) was coiled around each cord and actuated via an Arduino-triggered relay circuit ($18\text{ V}$, $2.97\text{ A}$ nominal current).
 
 - **Cutting Reliability:** A single cord severed consistently in **$4.61 \pm 0.71\text{ s}$** at an adjusted resistive length of $13\text{ cm}$.
-- **Thermal Integrity:** Tested without cord up to a $15\text{ s}$ continuous burn; confirmed the heating element operated far below its $1150^\circ\text{C}$ melting point without burnwire failure.
+- **Thermal Integrity:** Tested without cord up to a $15\text{ s}$ continuous burn; confirmed the heating element operated well below its $1150^\circ\text{C}$ melting point without burnwire failure.
 
-<div class="figure-grid">
-  <figure class="figure-card">
-    <img src="../assets/me3-dmt/test-nichrome-burnwire-element.png" alt="Nichrome burnwire element wrapped around Dyneema cord with alligator clip terminals" loading="lazy">
-    <figcaption class="figure-caption">
-      <strong>Burnwire Rig:</strong> 35 SWG nichrome wire coiled around the Dyneema cord and wired through safety relay channels.
-    </figcaption>
-  </figure>
-  <figure class="figure-card">
-    <img src="../assets/me3-dmt/test-burnwire-action-smoke.png" alt="Burnwire test in action showing smoke and cord severance under tension" loading="lazy">
-    <figcaption class="figure-caption">
-      <strong>Active Severance:</strong> Verification run demonstrating rapid Dyneema melting and instantaneous nose cone release under 200 N spring preload.
-    </figcaption>
-  </figure>
-</div>
+<figure class="figure-card">
+  <video width="100%" autoplay muted loop playsinline controls preload="metadata" src="../assets/me3-dmt/Burnwire%20test%20release%20footage.mov">
+    Your browser does not support inline playback of this video.
+  </video>
+  <figcaption class="figure-caption">
+    <strong>Burnwire Test Release Footage:</strong> Live electromechanical verification showing the Arduino-controlled 35 SWG nichrome burnwire rapidly melting through tensioned Dyneema restraint cords, releasing the spring-loaded nose cone.
+  </figcaption>
+</figure>
 
 ---
 
-### Test B: Rotary Latch Bench Release & CAGB 104 Wind Tunnel
+### Test B: Wind Tunnel Two-Stage Deployment (CAGB 104)
 
-To validate the second-stage main parachute extraction, we conducted both bench release trials and scaled wind tunnel testing in the Imperial Mechanical Engineering wind tunnel (CAGB 104):
+To validate Stage 2 main parachute extraction under airflow, we conducted scaled aerodynamic deployment testing in the Imperial Mechanical Engineering wind tunnel (CAGB 104):
 
-- **Bench Actuation:** Confirmed that the motorized rotary latch disengages instantly on relay trigger, releasing the main shock cord loop under simulated Kevlar tension.
-- **Wind Tunnel Deployment:** Modified the tunnel cross-section to $120 \times 80\text{ cm}$ to fly the 0.9 m drogue canopy. Verified that even at $5.48\text{ m/s}$ (approximately **$5.7\times$ lower dynamic pressure** than actual flight), the drogue generates sufficient aerodynamic pull to cleanly extract the main chute from the deployment canister without cord tangling.
+- **Wind Tunnel Extraction:** Modified the tunnel cross-section to $120 \times 80\text{ cm}$ to fly the 0.9 m drogue canopy. Verified that even at $5.48\text{ m/s}$ (approximately **$5.7\times$ lower dynamic pressure** than target flight), triggering the electronic rotary latch enables the drogue to generate sufficient aerodynamic drag to cleanly extract the main chute from the deployment canister without cord tangling.
 
-<div class="figure-grid">
-  <figure class="figure-card">
-    <video width="100%" autoplay muted loop playsinline controls preload="metadata">
-      <source src="../assets/me3-dmt/test-rotary-latch-release.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-    <figcaption class="figure-caption">
-      <strong>Benchtop Release Test:</strong> Electronic rotary latch trigger releasing the Kevlar shock cord under tension on 3-2-1 countdown.
-    </figcaption>
-  </figure>
-  <figure class="figure-card">
-    <video width="100%" autoplay muted loop playsinline controls preload="metadata">
-      <source src="../assets/me3-dmt/test-windtunnel-deployment.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-    <figcaption class="figure-caption">
-      <strong>Wind Tunnel Deployment Test (CAGB 104):</strong> Two-stage extraction showing the drogue canopy pulling the main parachute out of the airframe canister upon latch actuation.
-    </figcaption>
-  </figure>
-</div>
+<figure class="figure-card">
+  <video width="100%" autoplay muted loop playsinline controls preload="metadata">
+    <source src="../assets/me3-dmt/test-windtunnel-deployment.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <figcaption class="figure-caption">
+    <strong>Wind Tunnel Deployment Test (CAGB 104):</strong> Full two-stage extraction showing the drogue canopy pulling the main parachute out of the airframe canister upon rotary latch actuation.
+  </figcaption>
+</figure>
 
 ---
 
-### Test C: Dynamic Shaker Vibration Testing (HADES Platform)
+### Test C: Dynamic Vibration Testing
 
-During launch and ascent, the recovery bay undergoes severe broadband random excitation from the 3000 N liquid bipropellant engine and transonic boundary layer buffet. To ensure mechanical integrity and verify that premature nose cone separation would not occur, I designed and planned the dynamic vibration qualification campaign on Imperial's **HADES (High Amplitude Dynamic Excitation System)** shaker platform.
+During ascent, forward airframe modules experience severe broadband random excitation. To evaluate structural resonance margins and ensure premature nose cone separation would not occur, I formulated and planned the dynamic vibration qualification campaign on Imperial's dynamic shaker table platform (**HADES**).
 
 **Campaign Planning & Setup:**
 - Formulated the test envelope combining a **$6\text{g}$ axial sine sweep ($40\text{--}2000\text{ Hz}$)** and an **SMC-S-016 space qualification random vibration profile ($6.81\text{ Grms}$)**.
-- Designed the mounting adapter fixture to rigidly bolt the recovery bay to the HADES shaker head.
+- Designed the mounting adapter fixture to rigidly bolt the recovery bay to the shaker head.
 - Defined the 4-channel accelerometer instrumentation matrix to capture control input, structural response, and cross-axis dynamics.
-- **Collaborative Execution:** Physical rig mounting, shaker calibration, amplifier operation, and high-level safety procedures were executed in close collaboration with recovery teammates and the HADES facility laboratory technician.
+- **Collaborative Execution:** Physical rig mounting, shaker calibration, amplifier operation, and facility safety procedures were conducted collaboratively with my recovery teammates and the laboratory technician.
 
 <div class="figure-grid">
   <figure class="figure-card">
-    <img src="../assets/me3-dmt/hades-shaker-setup-diagram.png" alt="Accelerometer channel layout on the HADES shaker table" loading="lazy">
+    <img src="../assets/me3-dmt/Vibration%20Test%20setup.png" alt="Experimental setup and attached accelerometers on the vibration shaker table" loading="lazy">
     <figcaption class="figure-caption">
       <strong>Instrumentation Setup:</strong> Triaxial and uniaxial accelerometers mounted at key measurement points: Ch 1 (Shaker vertical control), Ch 2 (Nose cone vertical), Ch 3 (Nose cone lateral), and Ch 4 (Payload lateral).
     </figcaption>
   </figure>
   <figure class="figure-card">
-    <img src="../assets/me3-dmt/test-hades-shaker-accelerometer-setup.png" alt="Physical hardware mounted onto the HADES shaker plate" loading="lazy">
+    <video width="100%" autoplay muted loop playsinline controls preload="metadata">
+      <source src="../assets/me3-dmt/Vibration%20Test%20Footage.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
     <figcaption class="figure-caption">
-      <strong>Physical Shaker Assembly:</strong> Recovery module bolted to HADES via a custom adapter bulkhead for vertical dynamic excitation ($40\text{--}2000\text{ Hz}$).
+      <strong>Vibration Test Footage:</strong> Recovery module bolted to the HADES shaker via a custom adapter bulkhead undergoing vertical dynamic excitation ($40\text{--}2000\text{ Hz}$).
     </figcaption>
   </figure>
 </div>
 
-### Python Telemetry Processing & Critical Findings
+### Python Data Processing & Critical Findings
 
-I authored custom data analysis workflows in Python (`pandas`, `numpy`, `scipy`, `matplotlib`) to process raw Data Physics shaker telemetry, computing frequency response functions ($H_{xy}$), auto-spectra ($S_x$), and Power Spectral Densities ($G_{xx}$):
+I authored custom data analysis workflows in Python (`pandas`, `numpy`, `scipy`, `matplotlib`) to process raw shaker telemetry, computing frequency response functions ($H_{xy}$), auto-spectra ($S_x$), and Power Spectral Densities ($G_{xx}$):
 
 1. **Sine-Sweep Transmissibility (6g Axial Input, 40–2000 Hz):**
-   - The payload exhibited low dynamic amplification ($1.17\text{ g/g}$ peak at $1265\text{ Hz}$), confirming the internal electronics bracket isolation.
+   - The payload exhibited low dynamic amplification ($1.17\text{ g/g}$ peak at $1265\text{ Hz}$), confirming internal electronics bracket isolation.
    - However, at **$1883\text{ Hz}$**, the nose cone experienced extreme lateral amplification: **$90.87\text{ g/g}$ peak transmissibility**.
 2. **Random Vibration (SMC-S-016 Space Standard):**
    - The shaker delivered a controlled vertical input of $6.81\text{ Grms}$ (compliant with the $6.90\text{ Grms} \pm 1.0\text{ dB}$ standard for units $< 22.7\text{ kg}$).
@@ -280,122 +246,47 @@ This finding identified two critical flight risks:
 - Aerodynamic boundary-layer disruption if the nose cone tilts off-axis during ascent.
 - High-frequency cord chafing against bulkhead routing holes, which could cause premature Dyneema line failure and uncommanded nose cone deployment before apogee.
 
-**Design Countermeasure:** For the next flight iteration, we specified a redesigned **nose cone interface former with an extended axial sleeve and tighter bilateral tolerances**, creating a mechanical hard-stop that physically constrains lateral displacement under launch vibration.
+**Design Countermeasure:** For the next iteration, we specified a redesigned **nose cone interface former with an extended axial sleeve and tighter bilateral tolerances**, creating a mechanical hard-stop that physically constrains lateral displacement under vibration.
 
 ---
 
-## 6. Key Deliverables & Engineering Drawings
+## 6. Representative Engineering Drawings
 
-To validate design intent, define manufacturing boundaries, and ensure flawless assembly tolerances, detailed manufacturing drawings were authored to BS 8888 standards.
+To verify mechanical interfaces, define manufacturing tolerances ($\pm 0.02\text{ mm}$), and guide assembly, detailed BS 8888 engineering drawings were authored across the recovery subassembly. *(Click any drawing sheet below to inspect full resolution in lightbox view.)*
 
-### Primary Featured Assembly Drawing (DWG NO. C.AMB.002)
+<figure class="figure-card">
+  <img src="../assets/me3-dmt/drawing-recovery-assembly-sheet1.png" alt="Recovery System Assembly engineering drawing DWG NO C.AMB.002 Sheet 1 drawn by Shuo-Chun Sun" loading="lazy">
+  <figcaption class="figure-caption">
+    <strong>Master Recovery System Assembly — Sheet 1/2 (DWG NO. C.AMB.002 · Drawn by Shuo-Chun Sun):</strong> Full module orthographic views, parachute canister cross section (Section B-B, Scale 1:4), and Southco R4-EM rotary latch mounting detail (Detail A, Scale 1:2) with 25-item callout balloons.
+  </figcaption>
+</figure>
 
-Authored by **Shuo-Chun Sun**, this complete 2-sheet A3 engineering package details the overall mechanical architecture, longitudinal sections, detailed rotary latch bracket arrangements, and the full 25-item Bill of Materials (BOM):
-
-<div class="pdf-viewer-card" style="background: var(--bg-card, var(--bg-canvas)); border: 1px solid var(--border-hairline); border-radius: 16px; padding: 1.25rem; margin: 1.25rem 0 2rem;">
-  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.85rem; flex-wrap: wrap; gap: 0.75rem;">
-    <div>
-      <span class="drawing-badge-author" style="margin-right: 0.5rem;">Drawn by Shuo-Chun Sun</span>
-      <span class="drawing-number">DWG NO. C.AMB.002</span>
-      <h4 style="margin: 0.35rem 0 0.15rem; font-size: 1.12rem; font-weight: 650; color: var(--text-primary);">Recovery System Assembly &amp; Complete Parts List</h4>
-      <p style="margin: 0; font-size: 0.84rem; color: var(--text-secondary);">
-        Sheet 1: Assembly Views &amp; Section B-B · Sheet 2: 25-Item BOM (Bulkhead, Stringers, Rotary Latch, Eye Bolt M20, Parachutes, Payloads)
-      </p>
-    </div>
-    <a class="btn-apple btn-primary" href="../assets/me3-dmt/C.RECOVERY%20SYSTEM%20ASSEMBLY%20Drawing.pdf" target="_blank" rel="noopener">
-      Open Full Vector PDF ↗
-    </a>
-  </div>
-  <object data="../assets/me3-dmt/C.RECOVERY%20SYSTEM%20ASSEMBLY%20Drawing.pdf" type="application/pdf" width="100%" height="540px" style="border-radius: 10px; border: 1px solid var(--border-hairline); display: block; background: #ffffff;">
-    <div style="padding: 2rem; text-align: center; color: var(--text-secondary);">
-      <p>Inline PDF preview is available in desktop browsers.</p>
-      <a class="btn-apple btn-primary" href="../assets/me3-dmt/C.RECOVERY%20SYSTEM%20ASSEMBLY%20Drawing.pdf" target="_blank" rel="noopener">
-        View C.AMB.002 Drawing (PDF)
-      </a>
-    </div>
-  </object>
+<div class="figure-grid">
+  <figure class="figure-card">
+    <img src="../assets/me3-dmt/drawing-recovery-assembly-sheet2.png" alt="Recovery System Assembly Parts List BOM DWG NO C.AMB.002 Sheet 2" loading="lazy">
+    <figcaption class="figure-caption">
+      <strong>Assembly Bill of Materials — Sheet 2/2 (DWG NO. C.AMB.002 · Drawn by Shuo-Chun Sun):</strong> Complete 25-item parts list covering the bulkhead, stringers, rotary latch assembly, M20 eyebolt, avionics housings, PocketSat payloads, and parachute hardware.
+    </figcaption>
+  </figure>
+  <figure class="figure-card">
+    <img src="../assets/me3-dmt/drawing-bulkhead.png" alt="Bulkhead CNC manufacturing drawing DWG NO C.310.BULKHEAD showing pocketing and hole coordinate table" loading="lazy">
+    <figcaption class="figure-caption">
+      <strong>Bulkhead CNC Drawing (DWG NO. C.310.BULKHEAD):</strong> Manufacturing drawing detailing the 30% weight-reduced pocketed geometry, central M20x2.5 thread (C1), stringer slots, and precision CNC hole coordinate table ($A_1\text{--}C_1$).
+    </figcaption>
+  </figure>
 </div>
 
-### Representative Subassembly & Production Drawings
-
-<div class="drawing-grid">
-
-  <!-- Bulkhead Drawing -->
-  <div class="drawing-card">
-    <div>
-      <div class="drawing-card-header">
-        <span class="drawing-number">DWG NO. C.310</span>
-        <span class="drawing-spec-pill">Scale 1:3 · A4</span>
-      </div>
-      <h3 class="drawing-title">Bulkhead CNC Production Drawing</h3>
-      <p class="drawing-desc">
-        Manufacturing drawing for the primary load-bearing 6061-T6 plate. Details the 30% mass-reduction pocketing, central M20x2.5 eyebolt thread, stringer cutouts, and coordinate table for all 7 precision mounting holes.
-      </p>
-      <div class="drawing-specs">
-        <span class="drawing-spec-pill">Aluminium 6061-T6</span>
-        <span class="drawing-spec-pill">Ra 3.2 Machined Faces</span>
-        <span class="drawing-spec-pill">Tolerances ±0.02 mm</span>
-      </div>
-    </div>
-    <a class="btn-apple btn-secondary" href="../assets/me3-dmt/Bulkhead%20Drawing.pdf" target="_blank" rel="noopener" style="text-align: center; justify-content: center;">
-      📐 View Bulkhead Drawing (PDF)
-    </a>
-  </div>
-
-  <!-- Nose Cone Assembly Drawing -->
-  <div class="drawing-card">
-    <div>
-      <div class="drawing-card-header">
-        <span class="drawing-number">DWG NO. C.AMB.001</span>
-        <span class="drawing-badge-author">Drawn by Shuo-Chun Sun</span>
-      </div>
-      <h3 class="drawing-title">Nose Cone Assembly Drawing</h3>
-      <p class="drawing-desc">
-        Full assembly drawing detailing the aerodynamic nose cone integration, 3-spring ejection arrangement (RS PRO 35.5x7.55 alloy steel springs), brass threaded inserts, and 9-part BOM.
-      </p>
-      <div class="drawing-specs">
-        <span class="drawing-spec-pill">Scale 1:2 · A3</span>
-        <span class="drawing-spec-pill">Section A-A (1:2)</span>
-        <span class="drawing-spec-pill">9-Part BOM</span>
-      </div>
-    </div>
-    <a class="btn-apple btn-secondary" href="../assets/me3-dmt/Nose%20Cone%20Assembly%20Drawing.pdf" target="_blank" rel="noopener" style="text-align: center; justify-content: center;">
-      📐 View Nose Cone Drawing (PDF)
-    </a>
-  </div>
-
-  <!-- Interface Ring Drawing -->
-  <div class="drawing-card">
-    <div>
-      <div class="drawing-card-header">
-        <span class="drawing-number">DWG NO. C.304</span>
-        <span class="drawing-spec-pill">Scale 1:2 · A4</span>
-      </div>
-      <h3 class="drawing-title">Interface Ring Production Drawing</h3>
-      <p class="drawing-desc">
-        Precision CNC former ring providing the mechanical interface between the nose cone retention base, compression springs, and the longitudinal stringers with radial locking channels.
-      </p>
-      <div class="drawing-specs">
-        <span class="drawing-spec-pill">Aluminium 6061</span>
-        <span class="drawing-spec-pill">Hole Table A1–C3</span>
-        <span class="drawing-spec-pill">Fillets R2 Max</span>
-      </div>
-    </div>
-    <a class="btn-apple btn-secondary" href="../assets/me3-dmt/Interface%20Ring%20Drawing.pdf" target="_blank" rel="noopener" style="text-align: center; justify-content: center;">
-      📐 View Interface Ring Drawing (PDF)
-    </a>
-  </div>
-
-</div>
-
-<div class="cta-row" style="margin-top: 1.5rem; justify-content: center;">
-  <a class="btn-apple btn-primary" href="../assets/me3-dmt/C.RECOVERY%20SYSTEM%20ASSEMBLY%20Drawing.pdf" target="_blank" rel="noopener">
-    📐 View Master Recovery Drawing (C.AMB.002)
-  </a>
-  <a class="btn-apple btn-secondary" href="../assets/me3-dmt/Bulkhead%20Drawing.pdf" target="_blank" rel="noopener">
-    📐 View Bulkhead Drawing (C.310)
-  </a>
-  <a class="btn-apple btn-secondary" href="../assets/me3-dmt/hardware-assembly-full.png" target="_blank" rel="noopener">
-    🔍 High-Res Hardware Assembly Photo
-  </a>
+<div class="figure-grid">
+  <figure class="figure-card">
+    <img src="../assets/me3-dmt/drawing-nosecone-assembly.png" alt="Nose Cone Assembly drawing DWG NO C.AMB.001 drawn by Shuo-Chun Sun" loading="lazy">
+    <figcaption class="figure-caption">
+      <strong>Nose Cone Assembly Drawing (DWG NO. C.AMB.001 · Drawn by Shuo-Chun Sun):</strong> Section A-A assembly view, three-spring ejection mechanism (RS PRO alloy steel springs), brass threaded inserts, and 9-item BOM.
+    </figcaption>
+  </figure>
+  <figure class="figure-card">
+    <img src="../assets/me3-dmt/drawing-interface-ring.png" alt="Interface Ring production drawing DWG NO C.304 showing radial channels and hole table" loading="lazy">
+    <figcaption class="figure-caption">
+      <strong>Interface Ring Drawing (DWG NO. C.304):</strong> CNC machined former ring providing the retention seat between the nose cone base, compression springs, and longitudinal stringers.
+    </figcaption>
+  </figure>
 </div>
