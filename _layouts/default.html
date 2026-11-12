@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title and page.title != "Home" %}{{ page.title }} — {{ site.title }}{% else %}{{ site.title }} | Mechanical Engineering{% endif %}</title>
+  <meta name="description" content="{{ page.description | default: site.description }}">
+  <link rel="stylesheet" href="{{ '/assets/css/apple-design.css' | relative_url }}">
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script>
+    (function() {
+      try {
+        var saved = localStorage.getItem('stan-portfolio-theme');
+        if (saved === 'dark' || saved === 'light') {
+          document.documentElement.setAttribute('data-theme', saved);
+        } else {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+
+  <header class="apple-nav">
+    <div class="apple-nav-inner">
+      <a class="brand-link" href="{{ '/' | relative_url }}">
+        <span class="brand-dot"></span>
+        <span>Stan Sun</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary Navigation">
+        <a class="nav-item" href="{{ '/' | relative_url }}#projects">Projects</a>
+        <a class="nav-item" href="{{ '/assets/cv/Stan_Sun_CV.pdf' | relative_url }}" target="_blank" rel="noopener">CV</a>
+        <a class="nav-item" href="https://www.linkedin.com/in/shuo-chun-sun-43a850292" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="nav-item" href="https://github.com/SJSUNJET" target="_blank" rel="noopener">GitHub</a>
+        <a class="nav-item" href="mailto:stansun1022@gmail.com">Contact</a>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle color theme" title="Switch Light/Dark Mode">
+          <svg id="theme-icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <svg id="theme-icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main-container">
+    {{ content }}
+  </main>
+
+  <footer class="apple-footer">
+    <div>
+      <strong>Stan (Shuo-Chun) Sun</strong> · Department of Mechanical Engineering, Imperial College London
+    </div>
+    <div class="footer-links">
+      <a href="mailto:stansun1022@gmail.com">stansun1022@gmail.com</a>
+      <a href="mailto:ss10323@ic.ac.uk">ss10323@ic.ac.uk</a>
+      <a href="https://www.linkedin.com/in/shuo-chun-sun-43a850292" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/SJSUNJET" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </footer>
+
+  <!-- Lightbox Modal for High-Resolution Engineering Figures -->
+  <div class="lightbox-backdrop" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+    <img class="lightbox-Backdrop-img" id="lightbox-img" src="" alt="">
+  </div>
+
+  <script>
+    (function() {
+      var toggle = document.getElementById('theme-toggle');
+      var moon = document.getElementById('theme-icon-moon');
+      var sun = document.getElementById('theme-icon-sun');
+
+      function syncIcons() {
+        var current = document.documentElement.getAttribute('data-theme') || 'light';
+        if (current === 'dark') {
+          moon.style.display = 'none';
+          sun.style.display = 'block';
+        } else {
+          moon.style.display = 'block';
+          sun.style.display = 'none';
+        }
+      }
+      syncIcons();
+
+      if (toggle) {
+        toggle.addEventListener('click', function() {
+          var current = document.documentElement.getAttribute('data-theme') || 'light';
+          var next = current === 'dark' ? 'light' : 'dark';
+          document.documentElement.setAttribute('data-theme', next);
+          try { localStorage.setItem('stan-portfolio-theme', next); } catch (e) {}
+          syncIcons();
+        });
+      }
+
+      // Lightbox for engineering figures
+      var lightbox = document.getElementById('lightbox');
+      var lightboxImg = document.getElementById('lightbox-img');
+      document.querySelectorAll('.figure-card img').forEach(function(img) {
+        img.addEventListener('click', function() {
+          lightboxImg.src = img.src;
+          lightboxImg.alt = img.alt || '';
+          lightbox.classList.add('is-open');
+        });
+      });
+      if (lightbox) {
+        lightbox.addEventListener('click', function() {
+          lightbox.classList.remove('is-open');
+        });
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape') lightbox.classList.remove('is-open');
+        });
+      }
+
+      // Seamless trimmed looping for simulation videos (skips OBS start/end frames)
+      document.querySelectorAll('video[data-start]').forEach(function(vid) {
+        var start = parseFloat(vid.getAttribute('data-start')) || 0;
+        var end = parseFloat(vid.getAttribute('data-end')) || 0;
+
+        function ensureStart() {
+          if (vid.currentTime < start || (end > 0 && vid.currentTime >= end)) {
+            try { vid.currentTime = start; } catch (e) {}
+          }
+        }
+
+        vid.addEventListener('loadedmetadata', function() {
+          ensureStart();
+          var playPromise = vid.play();
+          if (playPromise !== undefined) {
+            playPromise.catch(function() {});
+          }
+        });
+
+        vid.addEventListener('timeupdate', function() {
+          if (end > 0 && vid.currentTime >= end) {
+            vid.currentTime = start;
+            vid.play().catch(function() {});
+          } else if (vid.currentTime < start) {
+            vid.currentTime = start;
+          }
+        });
+
+        vid.addEventListener('ended', function() {
+          vid.currentTime = start;
+          vid.play().catch(function() {});
+        });
+
+        if (vid.readyState >= 1) {
+          ensureStart();
+          vid.play().catch(function() {});
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

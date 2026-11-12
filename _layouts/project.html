@@ -1,0 +1,59 @@
+---
+layout: default
+---
+
+<div class="back-nav">
+  <a class="back-pill" href="{{ '/' | relative_url }}">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="19" y1="12" x2="5" y2="12"></line>
+      <polyline points="12 19 5 12 12 5"></polyline>
+    </svg>
+    <span>All Projects</span>
+  </a>
+</div>
+
+<section class="project-hero">
+  {% if page.category %}
+  <div class="eyebrow">{{ page.category }}</div>
+  {% endif %}
+  <h1>{{ page.headline | default: page.title }}</h1>
+  {% if page.subtitle %}
+  <p class="hero-subtitle" style="margin-bottom: 0.5rem;">{{ page.subtitle }}</p>
+  {% endif %}
+
+  <div class="project-meta-bar">
+    {% if page.date_label %}
+    <div class="meta-item">
+      <span class="meta-label">Timeline</span>
+      <span class="meta-value">{{ page.date_label }}</span>
+    </div>
+    {% endif %}
+    {% if page.context %}
+    <div class="meta-item">
+      <span class="meta-label">Organization / Module</span>
+      <span class="meta-value">{{ page.context }}</span>
+    </div>
+    {% endif %}
+    {% if page.tools %}
+    <div class="meta-item">
+      <span class="meta-label">Engineering Stack</span>
+      <span class="meta-value">{{ page.tools }}</span>
+    </div>
+    {% endif %}
+  </div>
+</section>
+
+{% if page.metrics %}
+<section class="bento-metrics" aria-label="Key Engineering Highlights">
+  {% for m in page.metrics %}
+  <div class="metric-card">
+    <div class="metric-value">{{ m.value }}</div>
+    <div class="metric-label">{{ m.label }}</div>
+  </div>
+  {% endfor %}
+</section>
+{% endif %}
+
+<article class="project-content">
+  {{ content }}
+</article>
