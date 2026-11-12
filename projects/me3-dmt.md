@@ -93,7 +93,7 @@ All deployment shock loads transfer through a heavy-duty **M20 central eye-bolt*
 </div>
 
 <figure class="figure-card">
-  <img src="../assets/me3-dmt/mfg-jlc-cnc-6061-plates.png" alt="Precision CNC machined anodized aluminum bulkhead and former plates" loading="lazy">
+  <img src="../assets/me3-dmt/mfg-jlc-cnc-6061.png" alt="Precision CNC machined anodized aluminum bulkhead and former plates" loading="lazy">
   <figcaption class="figure-caption">
     <strong>Precision CNC-Machined Hardware:</strong> Anodized aluminum bulkhead plate (left), parachute cylinder former (middle), and nose cone interface former (right) featuring the pocketed geometry that achieved a <strong>30% mass reduction</strong>.
   </figcaption>
