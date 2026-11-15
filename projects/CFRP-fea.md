@@ -1,15 +1,17 @@
 ---
 layout: project
 title: FEA — Carbon Fibre Composite Top Shell
-headline: Static Structural Analysis of the 3.0 Gen Eco-Marathon Vehicle Top Shell
-subtitle: Composite laminate definition in ANSYS ACP (Pre) and structural stiffness validation of the carbon-fibre/PVC-foam cockpit shell under localized driver entry/exit loads.
+headline: Static Structural Analysis of the Eco-Marathon CFRP Monocoque & Top Shell
+subtitle: Composite laminate optimization in ANSYS ACP (Pre) and ANSYS Mechanical, reducing composite skin layup from 5 to 2 layers and achieving a 40% (8 kg) monocoque mass reduction.
 category: Composite Structures & FEA
-date_label: Oct 2024 – Aug 2025
-context: Imperial College Eco-Marathon Team
-tools: ANSYS ACP (Pre), ANSYS Mechanical, Static Structural
+date_label: Sep 2023 – Jun 2026
+context: Imperial Eco-Marathon Team (Shell Global Competition)
+tools: ANSYS Mechanical, ANSYS ACP (Pre), Static Structural FEA
 metrics:
-  - value: "~5%"
-    label: "Shell Mass Reduction via Layup Optimization"
+  - value: "-40% (8 kg)"
+    label: "Monocoque Mass Reduction via Data-Driven FEA Optimization"
+  - value: "5 → 2 Plies"
+    label: "Composite Skin Layup Reduction (ANSYS ACP)"
   - value: "230 GPa"
     label: "Epoxy Carbon Woven Skin + 60 kg/m³ PVC Foam Core"
   - value: "0° / 90°"
@@ -18,13 +20,13 @@ metrics:
 
 ## 1. Project Overview & Objectives
 
-Conducted a detailed finite element analysis (FEA) using **ANSYS Composite PrepPost — ACP (Pre)** and **ANSYS Static Structural** to evaluate the structural stiffness, load paths, and safety margin of the 3.0 Generation Imperial Eco-Marathon vehicle's carbon-fibre composite top shell.
+Conducted finite element analyses (FEA) using **ANSYS Composite PrepPost — ACP (Pre)** and **ANSYS Mechanical (Static Structural)** for the **Imperial Eco-Marathon Team (Shell Global Competition)** to redesign the carbon-fibre monocoque and validate the 3.0 Generation composite top shell under multi-case structural loading and localized driver entry/exit forces.
 
-During driver ingress and egress, the top-opening cockpit door periphery and longitudinal sill ribs experience concentrated downward loads. The primary objectives of this study were to:
+During driver ingress, egress, and operational load cases, the top-opening cockpit door periphery and longitudinal sill ribs experience concentrated bending and shear loads. The primary objectives of this study were to:
 
-- **Validate structural integrity** under localized loading representative of driver entry and exit.
-- **Evaluate global and localized deformation** across the monocoque upper shell and internal stiffening ribs.
-- **Identify stress/strain hotspots** along rib-to-skin junctions to guide targeted local ply reinforcement without adding unnecessary vehicle mass.
+- **Reduce vehicle mass without compromising stiffness:** Use data-driven FEA optimization to trim unnecessary plies (reducing composite skin layup from **5 down to 2 layers**) and achieve a **40% overall monocoque mass reduction (8 kg)** while improving stiffness-to-weight ratio.
+- **Evaluate global and localized deformation:** Verify compliance and structural deformation limits across the upper shell and internal stiffening ribs under multi-case loading conditions.
+- **Identify stress/strain hotspots:** Pinpoint critical rib-to-sill junctions to guide targeted local reinforcement while collaborating across mechanical, aero, and electronics sub-teams within tight vehicle packaging constraints.
 
 ---
 
@@ -143,5 +145,6 @@ The composite shell assembly was evaluated in **ANSYS Static Structural** under 
 
 ## 5. Validation & Engineering Impact
 
-- **Weight & Stiffness Optimization:** Refining the composite ply schedule and concentrating reinforcement plies strictly at the identified cockpit sill hotspots enabled an estimated **~5% reduction in top-shell mass** while preserving full structural stiffness for driver ingress/egress.
-- **Verification Workflow:** Combined mesh refinement checks at rib fillets with classical laminate theory sanity checks on the orthotropic carbon-epoxy stackup.
+- **Weight & Stiffness Optimization:** Executing iterative static structural FEA in ANSYS Mechanical and ANSYS ACP reduced composite skin layups from **5 to 2 layers**, contributing to a **40% overall monocoque mass reduction (8 kg)** with an improved stiffness-to-weight ratio while satisfying strict structural deformation limits across loading conditions.
+- **Multidisciplinary Packaging Integration:** Worked closely across mechanical, aerodynamics, and electronics sub-teams to maintain internal component clearance and structural stiffness around driver ingress/egress cockpit cutouts.
+- **Verification Workflow:** Combined mesh refinement checks at rib fillets with orthogonal rosette alignment validation on the carbon-epoxy sandwich stackups.

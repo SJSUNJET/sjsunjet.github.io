@@ -4,7 +4,7 @@ title: Rocket Recovery Module — ME3 Design, Make & Test
 headline: Two-Stage Electromechanical Parachute Recovery Module
 subtitle: Mechanical architecture, static FEA bulkhead weight optimization, electromechanical burnwire and latch deployment, and dynamic vibration qualification for a rocket recovery module.
 category: Aerospace & Mechatronic Systems
-date_label: October 2025 – June 2026
+date_label: September 2025 – June 2026
 context: Imperial College London · ME3 Design, Make & Test (DMT)
 tools: CAD, Static FEA, Python (Data Processing), Vibration Testing, Arduino, Metal & 3D-Printed Prototype Manufacturing
 metrics:

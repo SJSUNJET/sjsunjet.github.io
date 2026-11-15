@@ -352,6 +352,87 @@ a:hover {
   transform: translateY(-1px);
 }
 
+/* Featured Experience Highlight Card (Option A Wide Banner) */
+.highlight-card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-outer);
+  padding: 1.75rem 2rem;
+  box-shadow: var(--shadow-card);
+  margin-bottom: 3rem;
+  transition: transform 0.38s var(--ease-spring), box-shadow 0.38s var(--ease-spring), border-color 0.25s ease;
+}
+
+.highlight-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: var(--border-strong);
+}
+
+.highlight-card-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.75rem 1.25rem;
+  margin-bottom: 1.15rem;
+}
+
+.highlight-role {
+  font-size: clamp(1.32rem, 2.2vw, 1.55rem);
+  font-weight: 700;
+  letter-spacing: -0.022em;
+  line-height: 1.2;
+  color: var(--text-primary);
+  margin: 0.15rem 0 0.25rem;
+}
+
+.highlight-meta {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.highlight-metrics-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 0.85rem;
+  margin: 1.1rem 0 1.25rem;
+}
+
+.highlight-metric-tile {
+  background: var(--bg-canvas);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-inner);
+  padding: 0.95rem 1.1rem;
+}
+
+.highlight-metric-tile .metric-value {
+  font-size: 1.35rem;
+  margin-bottom: 0.2rem;
+}
+
+.highlight-metric-tile .metric-label {
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+
+.highlight-bullets {
+  margin: 0 0 1.25rem;
+  padding-left: 1.25rem;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.58;
+}
+
+.highlight-bullets li {
+  margin-bottom: 0.45rem;
+}
+
+.highlight-bullets strong {
+  color: var(--text-primary);
+}
+
 /* Project Cards Bento Grid (Concentric Curvature) */
 .section-header {
   display: flex;
@@ -844,8 +925,9 @@ a:hover {
     padding: 2rem 1rem 3.5rem;
   }
   .project-hero,
-  .project-content {
-    padding: 1.5rem;
+  .project-content,
+  .highlight-card {
+    padding: 1.45rem;
   }
   .projects-grid {
     grid-template-columns: 1fr;

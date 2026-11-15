@@ -1,5 +1,5 @@
 title: Stan Sun — Engineering Portfolio
-description: Mechanical Engineering at Imperial College London | Mechatronics, Composite FEA, CAD & Computational Simulation
+description: MEng Mechanical Engineering at Imperial College London | Product Design at Google, Multibody Dynamics, Composite FEA & CAD
 markdown: kramdown
 theme: minima
 plugins:
@@ -8,3 +8,4 @@ exclude:
   - projects/_drafts/
   - assets/cv/README.md
   - assets/me3-dmt/README.md
+  - scratch/

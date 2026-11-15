@@ -4,32 +4,80 @@ title: Home
 ---
 
 <section class="hero-section">
-  <div class="eyebrow">Imperial College London · Mechanical Engineering</div>
+  <div class="eyebrow">Imperial College London · MEng Mechanical Engineering (Sep 2023 – Jun 2027)</div>
   <h1 class="hero-title">Stan (Shuo-Chun) Sun</h1>
   <p class="hero-subtitle">
-    Mechanical Engineering student specializing in structural composites, computational mechanics, and mechatronic system design. Building rigorous simulations and physical hardware from first principles.
+    MEng Mechanical Engineering student (75.95% Year 3 standing, First Class Honours track) and former Product Design Engineer Intern at Google. Specializing in multibody dynamics (Siemens NX Motion), composite structural FEA (ANSYS ACP), precision CAD, and Python data workflows.
   </p>
 
   <div class="pill-row" aria-label="Core Focus Areas">
-    <span class="skill-pill">🚗 Mechatronics &amp; Embedded Systems</span>
-    <span class="skill-pill">📈 Computational PDE &amp; Numerical Simulation</span>
-    <span class="skill-pill">🛠 CAD &amp; Composite FEA (ANSYS ACP)</span>
-    <span class="skill-pill">🤖 Robotics, Dynamics &amp; Control</span>
+    <span class="skill-pill">📐 CAD (SolidWorks · Siemens NX · Fusion 360)</span>
+    <span class="skill-pill">⚙️ Multibody Dynamics (NX Motion)</span>
+    <span class="skill-pill">📊 FEA (ANSYS Mechanical &amp; ACP · Abaqus · SolidWorks)</span>
+    <span class="skill-pill">🐍 Python &amp; MATLAB Data Processing</span>
   </div>
 
   <div class="cta-row">
-    <a class="btn-apple btn-primary" href="#projects">Explore Projects</a>
-    <a class="btn-apple btn-secondary" href="./assets/cv/Stan_Sun_CV.pdf" target="_blank" rel="noopener">Download CV (PDF)</a>
+    <a class="btn-apple btn-primary" href="#experience">Experience Highlight</a>
+    <a class="btn-apple btn-secondary" href="#projects">Explore Projects</a>
+    <a class="btn-apple btn-secondary" href="./assets/cv/CV.Shuo-Chun%20Sun_2026.11.15_Public.pdf" target="_blank" rel="noopener">Download CV (PDF)</a>
     <a class="btn-apple btn-secondary" href="https://www.linkedin.com/in/shuo-chun-sun-43a850292" target="_blank" rel="noopener">LinkedIn</a>
     <a class="btn-apple btn-secondary" href="https://github.com/SJSUNJET" target="_blank" rel="noopener">GitHub</a>
-    <a class="btn-apple btn-secondary" href="mailto:stansun1022@gmail.com">Email</a>
+    <a class="btn-apple btn-secondary" href="mailto:ss10323@ic.ac.uk">Email</a>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="section-header">
+    <h2>Experience Highlight</h2>
+    <span>Industry Internship · Jun 2026 – Sep 2026</span>
+  </div>
+
+  <div class="highlight-card">
+    <div class="highlight-card-header">
+      <div>
+        <div class="eyebrow" style="margin-bottom: 0.6rem;">Google · Product Design Internship</div>
+        <h3 class="highlight-role">Product Design Engineer Intern</h3>
+        <div class="highlight-meta">Google · Jun 2026 – Sep 2026</div>
+      </div>
+    </div>
+
+    <div class="highlight-metrics-row">
+      <div class="highlight-metric-tile">
+        <div class="metric-value">NX MBD</div>
+        <div class="metric-label">Dynamic torque modeling of spring-cam foldable hinge mechanisms in Siemens NX</div>
+      </div>
+      <div class="highlight-metric-tile">
+        <div class="metric-value">&lt; 15%</div>
+        <div class="metric-label">Torque output deviation vs. experimental data across ±10% parameter shifts</div>
+      </div>
+      <div class="highlight-metric-tile">
+        <div class="metric-value">Python</div>
+        <div class="metric-label">Noise-filtering simulation workflows &amp; standardised team simulation guide</div>
+      </div>
+    </div>
+
+    <ul class="highlight-bullets">
+      <li>Simulated dynamic torque profiles for foldable smartphone hinges by constructing <strong>multibody dynamics (MBD) models</strong> for complex spring-cam mechanisms in <strong>Siemens NX</strong>.</li>
+      <li>Formulated a <strong>dimensionless numerical sensitivity study</strong> to quantify torque output variance across <strong>±10% parameter shifts</strong>, achieving <strong>&lt;15% deviation</strong> against experimental torque data.</li>
+      <li>Built data processing workflows with <strong>Python</strong> to filter signal noise and process simulation data, authoring a <strong>standardised simulation guide</strong> for the engineering team.</li>
+    </ul>
+
+    <div class="project-card-tags" style="padding-top: 0.85rem;">
+      <span class="tag-chip">Siemens NX</span>
+      <span class="tag-chip">NX Motion (MBD)</span>
+      <span class="tag-chip">Spring-Cam Mechanisms</span>
+      <span class="tag-chip">Numerical Sensitivity Study</span>
+      <span class="tag-chip">Python (Data Processing)</span>
+      <span class="tag-chip">Simulation Standardization</span>
+    </div>
   </div>
 </section>
 
 <section id="projects">
   <div class="section-header">
     <h2>Featured Engineering Projects</h2>
-    <span>Click any card to view methodology, figures &amp; reports</span>
+    <span>Click any card to view methodology, figures &amp; outcomes</span>
   </div>
 
   <div class="projects-grid">
@@ -41,10 +89,10 @@ title: Home
         <span class="card-badge-overlay">Aerospace &amp; Mechatronics</span>
       </div>
       <div class="project-card-body">
-        <div class="project-card-meta">ME3 Design, Make &amp; Test · Oct 2025 – Jun 2026</div>
+        <div class="project-card-meta">Rocket Parachute Recovery System · Sep 2025 – Jun 2026</div>
         <h3 class="project-card-title">Two-Stage Electromechanical Rocket Recovery Module</h3>
         <p class="project-card-desc">
-          Co-led a 4-person team to design, manufacture, and qualify the dual-stage electromechanical parachute recovery module for a competition rocket superproject. Sized the CNC bulkhead via static FEA shape optimization (-30% weight reduction under 6 kN shock) and planned dynamic vibration qualification tests, diagnosing a critical 1883 Hz cross-axis resonance via Python data processing.
+          Co-led a 4-person team to design, manufacture, and qualify a dual-stage electromechanical parachute recovery module for a high-power rocket. Reduced bulkhead weight by 30% under 6 kN deployment shock loads via iterative FEA optimization, and designed shaker vibration experiments diagnosing an 1883 Hz resonance via Python.
         </p>
         <div class="project-card-tags">
           <span class="tag-chip">CAD &amp; Assembly BOM</span>
@@ -63,16 +111,16 @@ title: Home
         <span class="card-badge-overlay">Composite FEA</span>
       </div>
       <div class="project-card-body">
-        <div class="project-card-meta">Imperial Eco-Marathon · Oct 2024 – Aug 2025</div>
-        <h3 class="project-card-title">Static Structural Analysis of 3.0 Gen CFRP Vehicle Top Shell</h3>
+        <div class="project-card-meta">Imperial Eco-Marathon Team · Sep 2023 – Jun 2026</div>
+        <h3 class="project-card-title">Carbon-Fibre Monocoque &amp; Top Shell FEA Optimization</h3>
         <p class="project-card-desc">
-          Modelled multi-ply woven carbon-fibre skins and a PVC foam sandwich core in ANSYS ACP (Pre) and Static Structural to evaluate cockpit door stiffness under driver entry/exit loads, achieving ~5% shell mass reduction.
+          Redesigned carbon-fibre composite structures for the Shell Global Competition vehicle using ANSYS Mechanical and ANSYS ACP, achieving a 40% monocoque mass reduction (8 kg) and reducing composite skin layup from 5 to 2 layers under multi-case loading conditions.
         </p>
         <div class="project-card-tags">
-          <span class="tag-chip">ANSYS ACP (Pre)</span>
+          <span class="tag-chip">ANSYS Mechanical &amp; ACP</span>
           <span class="tag-chip">Static Structural</span>
-          <span class="tag-chip">CFRP Sandwich Layup</span>
-          <span class="tag-chip">Solid-Shell Meshing</span>
+          <span class="tag-chip">40% Mass Reduction (8 kg)</span>
+          <span class="tag-chip">5 → 2 Layer CFRP Optimization</span>
         </div>
       </div>
     </a>
