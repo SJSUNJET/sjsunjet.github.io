@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Shuo-Chun (Stan) Sun — Hardware &amp; Structural Engineering Mini-Portfolio</title>
+  <style>
+    @page {
+      size: A4 portrait;
+      margin: 7.5mm 9mm;
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #1d1d1f;
+      background: #ffffff;
+      font-size: 8.6pt;
+      line-height: 1.32;
+    }
+
+    .page-wrap {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 2.3mm;
+    }
+
+    /* Header */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 4mm;
+      padding-bottom: 1.8mm;
+      border-bottom: 1.4px solid #1d1d1f;
+    }
+
+    .eyebrow {
+      font-size: 6.6pt;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #0071e3;
+      margin-bottom: 0.5mm;
+    }
+
+    .name {
+      font-size: 15.5pt;
+      font-weight: 750;
+      letter-spacing: -0.025em;
+      line-height: 1.08;
+      margin: 0 0 0.7mm;
+    }
+
+    .sub {
+      font-size: 7.9pt;
+      color: #515154;
+      margin: 0;
+    }
+
+    .contact {
+      text-align: right;
+      font-size: 7.5pt;
+      color: #515154;
+      line-height: 1.38;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .contact strong {
+      color: #1d1d1f;
+    }
+
+    /* Section Card */
+    .project-section {
+      background: #f5f5f7;
+      border: 1px solid rgba(0, 0, 0, 0.09);
+      border-radius: 9px;
+      padding: 2.3mm 2.8mm;
+      break-inside: avoid;
+    }
+
+    .proj-head {
+      display: flex;
+      flex-direction: column;
+      gap: 1.1mm;
+      margin-bottom: 1.3mm;
+    }
+
+    .proj-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 2mm;
+    }
+
+    .proj-title {
+      font-size: 10.6pt;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      margin: 0;
+      color: #1d1d1f;
+    }
+
+    .proj-meta {
+      font-size: 7.4pt;
+      color: #515154;
+      margin: 0.3mm 0 0;
+    }
+
+    .metrics-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.3mm;
+      align-items: center;
+    }
+
+    .m-pill {
+      background: #ffffff;
+      border: 1px solid rgba(0, 113, 227, 0.25);
+      color: #0071e3;
+      font-size: 6.9pt;
+      font-weight: 650;
+      padding: 0.45mm 1.8mm;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    .proj-summary {
+      font-size: 7.7pt;
+      color: #3a3a3c;
+      margin: 0 0 1.6mm;
+      line-height: 1.32;
+    }
+
+    /* Visual Tiles */
+    .hero-banner-tile {
+      background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 6.5px;
+      padding: 1.1mm 1.8mm;
+      margin-bottom: 1.6mm;
+      display: flex;
+      align-items: center;
+      gap: 2.6mm;
+    }
+
+    .hero-banner-tile img {
+      width: 63%;
+      height: 24mm;
+      object-fit: contain;
+      display: block;
+    }
+
+    .hero-banner-caption {
+      width: 37%;
+      font-size: 7.1pt;
+      color: #515154;
+      line-height: 1.3;
+    }
+
+    .hero-banner-caption strong {
+      display: block;
+      color: #1d1d1f;
+      font-size: 7.5pt;
+      margin-bottom: 0.4mm;
+    }
+
+    .grid-2x2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.7mm;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.7mm;
+    }
+
+    .tile {
+      background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 6.5px;
+      padding: 1.1mm;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .tile-img-wrap {
+      width: 100%;
+      height: 33mm;
+      border-radius: 4px;
+      overflow: hidden;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .tile-img-wrap.comp {
+      height: 35mm;
+    }
+
+    .tile-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .tile-img-wrap.contain img {
+      object-fit: contain;
+    }
+
+    .tile-cap {
+      font-size: 7pt;
+      color: #515154;
+      line-height: 1.28;
+      padding: 0.9mm 0.5mm 0.1mm;
+    }
+
+    .tile-cap strong {
+      color: #1d1d1f;
+    }
+
+    /* Footer */
+    .footer-note {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 7pt;
+      color: #6e6e73;
+      padding-top: 0.9mm;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .footer-note strong {
+      color: #1d1d1f;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrap">
+
+    <!-- Header -->
+    <header class="header">
+      <div>
+        <div class="eyebrow">Hardware &amp; Structural Engineering Mini-Portfolio</div>
+        <h1 class="name">Shuo-Chun (Stan) Sun</h1>
+        <p class="sub">MEng Mechanical Engineering, Imperial College London (75.95% Year 3) · Former Product Design Intern, Google</p>
+      </div>
+      <div class="contact">
+        <strong>sjsunjet.github.io</strong><br>
+        ss10323@ic.ac.uk<br>
+        linkedin.com/in/shuo-chun-sun-43a850292
+      </div>
+    </header>
+
+    <!-- Project 1: Rocket Recovery Module -->
+    <section class="project-section">
+      <div class="proj-head">
+        <div class="proj-title-row">
+          <div>
+            <h2 class="proj-title">1. Two-Stage Electromechanical Rocket Recovery Module (Built &amp; Tested Hardware)</h2>
+            <p class="proj-meta">Imperial College London · ME3 Design, Make &amp; Test (Sep 2025 – Jun 2026) · Co-led 4-person sub-team</p>
+          </div>
+        </div>
+        <div class="metrics-pills">
+          <span class="m-pill">-30% Bulkhead Mass</span>
+          <span class="m-pill">6 kN Shock Load</span>
+          <span class="m-pill">1883 Hz Resonance Found</span>
+          <span class="m-pill">8.1 m/s Descent</span>
+        </div>
+      </div>
+
+      <p class="proj-summary">
+        Designed, CNC-machined, and tested a dual-stage parachute recovery bay for a competition rocket. Owned CAD packaging &amp; BS 8888 assembly drawings, static FEA bulkhead optimization, Arduino burnwire/latch deployment, and vibration test campaign planning + Python telemetry analysis.
+      </p>
+
+      <div class="hero-banner-tile">
+        <img src="../assets/me3-dmt/recovery-module-horizontal.png" alt="Physical manufactured rocket recovery module">
+        <div class="hero-banner-caption">
+          <strong>Full Built Recovery Hardware Assembly</strong>
+          Integrated 3D-printed ABS nose cone, anodized 6061 formers, workshop-milled aluminum stringers, PLA chute canister, central M20 eyebolt bulkhead, Southco rotary latch, and Arduino/relay electronics bay.
+        </div>
+      </div>
+
+      <div class="grid-2x2">
+        <div class="tile">
+          <div class="tile-img-wrap contain">
+            <img src="../assets/me3-dmt/drawing-recovery-assembly-sheet1.png" alt="Master BS 8888 Recovery System Assembly Drawing DWG C.AMB.002">
+          </div>
+          <div class="tile-cap">
+            <strong>CAD &amp; BS 8888 Assembly Drawing (C.AMB.002):</strong> Authored master general arrangement, canister cross-section, rotary latch detail, and full 25-item BOM.
+          </div>
+        </div>
+
+        <div class="tile">
+          <div class="tile-img-wrap contain">
+            <img src="../assets/me3-dmt/FEA%20Optimization%20for%20weight%20reduction.png" alt="Bulkhead FEA shape optimization for 30% weight reduction">
+          </div>
+          <div class="tile-cap">
+            <strong>Static FEA Shape Optimization:</strong> Sized pocketed ribs under 5.7 kN equivalent static deployment shock (<em>SF</em><sub>min</sub> = 1.51), cutting bulkhead mass by 30%.
+          </div>
+        </div>
+
+        <div class="tile">
+          <div class="tile-img-wrap">
+            <img src="../assets/me3-dmt/mfg-jlc-cnc-6061.png" alt="CNC machined anodized aluminum bulkhead and former plates">
+          </div>
+          <div class="tile-cap">
+            <strong>CNC-Machined Aluminum Plates:</strong> Fabricated anodized bulkhead (left), chute former (center), and interface ring (right) directly from pocketed CAD.
+          </div>
+        </div>
+
+        <div class="tile">
+          <div class="tile-img-wrap">
+            <img src="../assets/me3-dmt/cad-nosecone-springs-render.png" alt="Physical nose cone spring ejection and Dyneema burnwire mechanism">
+          </div>
+          <div class="tile-cap">
+            <strong>Mechanism Build &amp; Qualification:</strong> 200 N spring nose cone ejection with Dyneema cord tensioning; verified via nichrome burnwire (4.6 s), wind tunnel, &amp; shaker testing.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Project 2: Composite Monocoque & Top Shell -->
+    <section class="project-section">
+      <div class="proj-head">
+        <div class="proj-title-row">
+          <div>
+            <h2 class="proj-title">2. Carbon-Fibre Monocoque &amp; Top Shell Optimization (Shell Eco-Marathon)</h2>
+            <p class="proj-meta">Imperial Eco-Marathon Team · Mechanical Engineer (Sep 2023 – Jun 2026) · ANSYS Mechanical &amp; ANSYS ACP (Pre)</p>
+          </div>
+        </div>
+        <div class="metrics-pills">
+          <span class="m-pill">-40% (8 kg) Monocoque Mass</span>
+          <span class="m-pill">5 → 2 Skin Plies</span>
+          <span class="m-pill">230 GPa CFRP + PVC Core</span>
+        </div>
+      </div>
+
+      <p class="proj-summary">
+        Redesigned the CFRP monocoque and composite top shell using a data-driven FEA workflow in ANSYS Mechanical and ANSYS ACP (Pre), cutting monocoque mass by 40% (8 kg) and reducing skin layup from 5 to 2 layers while satisfying deformation and packaging constraints.
+      </p>
+
+      <div class="grid-2">
+        <div class="tile">
+          <div class="tile-img-wrap comp contain">
+            <img src="../assets/CFRP-fea/images/fig4-rosette-90deg.png" alt="ANSYS ACP orthogonal 0/90 fibre alignment directions on CFRP top shell">
+          </div>
+          <div class="tile-cap">
+            <strong>ANSYS ACP Laminate &amp; Fibre Alignment:</strong> Defined edge-guided 0°/90° rosettes across aerodynamic contours and internal stiffening ribs, enabling layup reduction from 5 to 2 plies.
+          </div>
+        </div>
+
+        <div class="tile">
+          <div class="tile-img-wrap comp contain">
+            <img src="../assets/CFRP-fea/images/fig6-deformation-result.png" alt="ANSYS Static Structural deformation contour plot on composite top shell">
+          </div>
+          <div class="tile-cap">
+            <strong>Static Structural Stiffness Validation:</strong> Evaluated qualitative deformation contours on the CFRP/PVC-foam sandwich shell under cockpit door loading to guide targeted local reinforcement.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer-note">
+      <span><strong>Selected Hardware &amp; CAD Proof</strong> — Rocket Recovery System &amp; Eco-Marathon CFRP Monocoque</span>
+      <span>Full videos, drawings &amp; vibration plots: <strong>sjsunjet.github.io</strong></span>
+    </footer>
+
+  </div>
+</body>
+</html>
