@@ -22,7 +22,7 @@ metrics:
 
 As part of the **ME3 Design, Make and Test (DMT)** curriculum at Imperial College London, our 4-person team designed, manufactured, and experimentally verified a **two-stage electromechanical parachute recovery module** intended for the DMT Rocket Superproject.
 
-Designed to meet European Rocketry Challenge (**EuRoC**) descent specifications within a 4-metre multi-team competition vehicle architecture, our sub-team delivered and experimentally qualified the **standalone parachute recovery module** (full vehicle assembly across propulsion, airframe, and recovery sub-teams was not completed due to project time and resource constraints).
+Designed to meet European Rocketry Challenge (**EuRoC**) descent specifications within a 4-metre multi-team competition vehicle architecture, our sub-team delivered and experimentally qualified the **standalone parachute recovery module** (full vehicle assembly across propulsion, airframe, and recovery sub-teams was completed but not tested due to project time and resource constraints).
 
 <figure class="figure-card">
   <img src="../assets/me3-dmt/cad-superproject-assembly%20(2).png" alt="Horizontal CAD architecture of the 4m DMT Rocket Superproject dividing Team B, Team A, and Team C recovery module" loading="lazy">
